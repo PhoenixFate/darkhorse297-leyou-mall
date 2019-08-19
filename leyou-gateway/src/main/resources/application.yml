@@ -1,0 +1,28 @@
+server:
+  port: 9990
+spring:
+  application:
+    name: leyou-gateway
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:10086/eureka
+
+zuul:
+  prefix: /api
+
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 12000        # 熔断超时时长: 6000ms
+#hystrix.timeout> (ribbon.ReadTimeout+ribbon+ConnectTimeout)*2
+ribbon:
+  ReadTimeout: 2000     # ribbon 读取超时时长
+  ConnectTimeout: 1000  # ribbon连接超时时长
+  MaxAutoRetries: 0   # 当前服务重试次数
+  MaxAutoRetriesNextServer: 0  # 切换服务重试次数
+

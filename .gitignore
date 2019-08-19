@@ -1,0 +1,10 @@
+.idea
+*.iml
+null
+.git
+
+leyou-registry/target
+leyou-registry/test
+
+leyou-gateway/target
+leyou-gateway/test
