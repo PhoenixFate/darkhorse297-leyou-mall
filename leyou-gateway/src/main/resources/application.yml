@@ -8,9 +8,11 @@ eureka:
   client:
     service-url:
       defaultZone: http://127.0.0.1:10086/eureka
-
+    registry-fetch-interval-seconds: 30  # 配置网管发现注册服务的刷新时间，默认就为30s
 zuul:
   prefix: /api
+  routes:
+    item-service: /item/**
 
 hystrix:
   command:
