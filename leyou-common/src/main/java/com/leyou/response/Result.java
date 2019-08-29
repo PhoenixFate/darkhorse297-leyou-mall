@@ -1,10 +1,13 @@
 package com.leyou.response;
 
+import lombok.Data;
+
 /**
  * @Author: 98050
  * @Time: 2018-11-24 21:41
  * @Feature: 返回结果
  */
+@Data
 public class Result<T> {
 
     private int code;
@@ -27,6 +30,9 @@ public class Result<T> {
         return new Result<T>(codeMsg);
     }
 
+
+
+
     private Result(T data) {
         this.data = data;
     }
@@ -36,6 +42,8 @@ public class Result<T> {
         this.msg = msg;
     }
 
+
+
     private Result(CodeMsg codeMsg) {
         if(codeMsg != null) {
             this.code = codeMsg.getCode();
@@ -44,22 +52,4 @@ public class Result<T> {
     }
 
 
-    public int getCode() {
-        return code;
-    }
-    public void setCode(int code) {
-        this.code = code;
-    }
-    public String getMsg() {
-        return msg;
-    }
-    public void setMsg(String msg) {
-        this.msg = msg;
-    }
-    public T getData() {
-        return data;
-    }
-    public void setData(T data) {
-        this.data = data;
-    }
 }
