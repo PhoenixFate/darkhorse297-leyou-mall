@@ -5,8 +5,11 @@ import com.leyou.item.pojo.Brand;
 import com.leyou.item.service.BrandService;
 import com.leyou.vo.PageResult;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("brand")
@@ -37,5 +40,21 @@ public class BrandController {
         return ResponseEntity.ok(result);
     }
 
+    /**
+     * 新增品牌
+     * @param brand
+     * @param cids
+     * @return
+     */
+    @PostMapping
+    public ResponseEntity<Void> saveBrans(
+            Brand brand,
+            @RequestParam(value="cids") List<Long> cids
+    ){
+        System.out.println(brand);
+        System.out.println(cids);
+        brandService.saveBrand(brand,cids);
+        return ResponseEntity.status(HttpStatus.CREATED).build();
+    }
 
 }

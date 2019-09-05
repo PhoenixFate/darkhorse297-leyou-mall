@@ -11,6 +11,7 @@ import com.leyou.vo.PageResult;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.CollectionUtils;
 import tk.mybatis.mapper.entity.Example;
 
@@ -44,5 +45,26 @@ public class BrandServiceImpl implements BrandService {
         //解析分页结果
         PageInfo<Brand>  info=new PageInfo<>(brandsList);
         return new PageResult<>(info.getTotal(),info.getPages(),brandsList);
+    }
+
+    @Override
+    @Transactional
+    public void saveBrand(Brand brand, List<Long> cids) {
+        // 新增品牌
+        brand.setId(null);//强制设置id为null，让id自增长，以防万一
+        int count = brandMapper.insert(brand);
+        if(count!=1){
+            // 失败
+            throw new LeyouException(ExceptionEnum.BRAND_SAVE_ERROR);
+        }
+
+        //新增中间表
+        for (Long cid : cids) {
+            count=brandMapper.insertCategoryBrand(cid,brand.getId());
+            if(count!=1){
+                throw new LeyouException(ExceptionEnum.CATEGORY_BRAND_SAVE_ERROR);
+            }
+        }
+
     }
 }
