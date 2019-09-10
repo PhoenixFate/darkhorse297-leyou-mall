@@ -249,33 +249,77 @@
         </dependency>
     </dependencies>
 
+
     <build>
+        <finalName>${project.artifactId}</finalName>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>true</filtering>
+            </resource>
+        </resources>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-maven-plugin</artifactId>
+                    <version>${spring-boot.version}</version>
+                    <executions>
+                        <execution>
+                            <goals>
+                                <goal>repackage</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                </plugin>
+            </plugins>
+        </pluginManagement>
         <plugins>
             <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.8.0</version>
+                <configuration>
+                    <target>${maven.compiler.target}</target>
+                    <source>${maven.compiler.source}</source>
+                    <encoding>UTF-8</encoding>
+                    <skip>true</skip>
+                </configuration>
             </plugin>
-
-<!--            <plugin>-->
-<!--                <groupId>com.spotify</groupId>-->
-<!--                <artifactId>docker-maven-plugin</artifactId>-->
-<!--                <version>1.2.0</version>-->
-<!--                <configuration>-->
-<!--                    <imageName>192.168.19.122:5000/${project.artifactId}:${project.version}</imageName>-->
-<!--                    <baseImage>jdk1.8</baseImage>-->
-<!--                    <entryPoint>["java", "‐jar", "/${project.build.finalName}.jar"]</entryPoint>-->
-<!--                    <resources>-->
-<!--                        <resource>-->
-<!--                            <targetPath>/</targetPath>-->
-<!--                            <directory>${project.build.directory}</directory>-->
-<!--                            <include>${project.build.finalName}.jar</include>-->
-<!--                        </resource>-->
-<!--                    </resources>-->
-<!--                    <dockerHost>http:192.168.191.122:2375</dockerHost>-->
-<!--                </configuration>-->
-<!--            </plugin>-->
+            <plugin>
+                <groupId>pl.project13.maven</groupId>
+                <artifactId>git-commit-id-plugin</artifactId>
+                <version>2.2.5</version>
+            </plugin>
         </plugins>
     </build>
+
+<!--    <build>-->
+<!--        <plugins>-->
+<!--            <plugin>-->
+<!--                <groupId>org.springframework.boot</groupId>-->
+<!--                <artifactId>spring-boot-maven-plugin</artifactId>-->
+<!--            </plugin>-->
+
+<!--&lt;!&ndash;            <plugin>&ndash;&gt;-->
+<!--&lt;!&ndash;                <groupId>com.spotify</groupId>&ndash;&gt;-->
+<!--&lt;!&ndash;                <artifactId>docker-maven-plugin</artifactId>&ndash;&gt;-->
+<!--&lt;!&ndash;                <version>1.2.0</version>&ndash;&gt;-->
+<!--&lt;!&ndash;                <configuration>&ndash;&gt;-->
+<!--&lt;!&ndash;                    <imageName>192.168.19.122:5000/${project.artifactId}:${project.version}</imageName>&ndash;&gt;-->
+<!--&lt;!&ndash;                    <baseImage>jdk1.8</baseImage>&ndash;&gt;-->
+<!--&lt;!&ndash;                    <entryPoint>["java", "‐jar", "/${project.build.finalName}.jar"]</entryPoint>&ndash;&gt;-->
+<!--&lt;!&ndash;                    <resources>&ndash;&gt;-->
+<!--&lt;!&ndash;                        <resource>&ndash;&gt;-->
+<!--&lt;!&ndash;                            <targetPath>/</targetPath>&ndash;&gt;-->
+<!--&lt;!&ndash;                            <directory>${project.build.directory}</directory>&ndash;&gt;-->
+<!--&lt;!&ndash;                            <include>${project.build.finalName}.jar</include>&ndash;&gt;-->
+<!--&lt;!&ndash;                        </resource>&ndash;&gt;-->
+<!--&lt;!&ndash;                    </resources>&ndash;&gt;-->
+<!--&lt;!&ndash;                    <dockerHost>http:192.168.191.122:2375</dockerHost>&ndash;&gt;-->
+<!--&lt;!&ndash;                </configuration>&ndash;&gt;-->
+<!--&lt;!&ndash;            </plugin>&ndash;&gt;-->
+<!--        </plugins>-->
+<!--    </build>-->
 
 <!--    <repositories>-->
 <!--        <repository>-->
