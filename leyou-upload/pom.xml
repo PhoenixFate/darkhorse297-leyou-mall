@@ -10,7 +10,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.leyou.upload</groupId>
-    <artifactId>leyou.upload</artifactId>
+    <artifactId>leyou-upload</artifactId>
 
     <dependencies>
         <dependency>
