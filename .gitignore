@@ -3,8 +3,6 @@
 null
 .git
 
+target
 leyou-registry/target
-leyou-registry/test
-
 leyou-gateway/target
-leyou-gateway/test

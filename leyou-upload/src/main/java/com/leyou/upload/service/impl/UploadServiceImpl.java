@@ -14,15 +14,12 @@ import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
-import java.util.Arrays;
-import java.util.List;
 
 @Slf4j
 @Service
 @EnableConfigurationProperties(UploadProperties.class)
 public class UploadServiceImpl implements UploadService {
 
-    //private static final List<String> ALLOWTYPES= Arrays.asList("image/jpeg","image/png","image/bmp");
 
     @Autowired
     private UploadProperties uploadProperties;
