@@ -5,8 +5,8 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.leyou.parent</groupId>
-    <artifactId>leyou</artifactId>
-    <version>1.0.0-SNAPSHOT</version>
+    <artifactId>darkhorse297-leyou-mall</artifactId>
+    <version>1.0.0</version>
     <modules>
         <module>leyou-registry</module>
         <module>leyou-gateway</module>
@@ -16,7 +16,7 @@
     </modules>
     <packaging>pom</packaging>
 
-    <name>leyou-mall</name>
+    <name>darkhorse297-leyou-mall</name>
 
     <parent>
         <groupId>org.springframework.boot</groupId>

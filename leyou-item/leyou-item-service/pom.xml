@@ -5,7 +5,7 @@
     <parent>
         <artifactId>leyou-item</artifactId>
         <groupId>com.leyou.item</groupId>
-        <version>1.0.0-SNAPSHOT</version>
+        <version>1.0.0</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
@@ -13,45 +13,45 @@
     <artifactId>leyou-item-service</artifactId>
 
     <dependencies>
-<!--        web-->
+        <!--web-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
-<!--        eureka-->
+        <!--eureka-->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
         </dependency>
 
-<!--        通用mapper-->
+        <!--通用mapper-->
         <dependency>
             <groupId>tk.mybatis</groupId>
             <artifactId>mapper-spring-boot-starter</artifactId>
         </dependency>
-<!--        通用mapper的分页插件： pageHelper-->
+        <!--通用mapper的分页插件： pageHelper-->
         <dependency>
             <groupId>com.github.pagehelper</groupId>
             <artifactId>pagehelper-spring-boot-starter</artifactId>
         </dependency>
-<!--        mysql connector-->
+        <!--mysql connector-->
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
         </dependency>
 
-<!--        item(商品) 的实体类-->
+        <!--item(商品) 的实体类-->
         <dependency>
             <groupId>com.leyou.item.interface</groupId>
             <artifactId>leyou-item-interface</artifactId>
-            <version>1.0.0-SNAPSHOT</version>
+            <version>1.0.0</version>
         </dependency>
 
-<!--        leyou-common-->
+        <!--leyou-common-->
         <dependency>
             <groupId>com.leyou.common</groupId>
             <artifactId>leyou-common</artifactId>
-            <version>1.0.0-SNAPSHOT</version>
+            <version>1.0.0</version>
         </dependency>
     </dependencies>
 
